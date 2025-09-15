@@ -135,7 +135,3 @@ Este exemplo ilustra:
 ## Conclusão
 
 A gramática EBNF apresentada define uma linguagem de programação simples mas completa, que atende aos requisitos básicos de uma linguagem de programação: variáveis, estruturas condicionais e loops. A escolha da MicrowaveVM como target permite uma implementação direta e eficiente, mantendo a simplicidade do design.
-
-## 📋 Tarefas
-- **Tarefa 1**: Estruturar linguagem segundo padrão EBNF (18/Set/2025)
-- **Tarefa 2**: Análise Léxica e Sintática com Flex/Bison (16/Out/2025)
