@@ -2,13 +2,24 @@
 
 ## Visão Geral
 
-Esta especificação define a gramática formal da linguagem de programação LingParERP, desenvolvida como parte da Atividade Prática Supervisionada da disciplina de Linguagens de Programação.
+Esta especificação define a gramática formal da linguagem de programação LingParERP, desenvolvida como parte da Atividade Prática Supervisionada da disciplina de Linguagens de Programação. A linguagem foi projetada para controlar um microondas virtual através da MicrowaveVM.
 
 **Características da Linguagem:**
-- Target: MicrowaveVM
+- Target: MicrowaveVM (Máquina Virtual de Microondas)
 - Estilo: Baseado em C com palavras-chave em inglês
 - Tipos de dados: Apenas números inteiros
-- Foco: Simplicidade e clareza
+- Foco: Simplicidade e clareza para programação de receitas
+- Aplicação: Controle de tempo, potência e operações do microondas
+
+## Conexão com a MicrowaveVM
+
+A linguagem LingParERP foi desenvolvida especificamente para a **MicrowaveVM**, uma máquina virtual que simula um microondas real. A VM possui:
+
+- **Registradores de controle**: `TIME` (tempo) e `POWER` (potência)
+- **Registradores de simulação**: `TEMP` (temperatura) e `WEIGHT` (peso)
+- **Instruções básicas**: `SET`, `INC`, `DECJZ`, `GOTO`, `PRINT`, `HALT`
+
+A linguagem LingParERP traduz programas de alto nível (como o exemplo acima) para instruções de baixo nível da MicrowaveVM, permitindo programar receitas e operações de microondas de forma intuitiva.
 
 ## Definição da Gramática EBNF
 
@@ -106,32 +117,39 @@ A precedência é: parênteses > multiplicação/divisão > adição/subtração
 
 ## Exemplo de Programa
 
-O seguinte programa demonstra as principais características da linguagem LingParERP:
+O seguinte programa demonstra como usar a linguagem LingParERP para controlar um microondas virtual:
 
 ```lingpar
-program exemplo
-    var x = 10;
-    var y = 5;
+program aquecer_comida
+    var tempo = 60;        // tempo em segundos
+    var potencia = 80;     // potência em percentual
+    var temperatura = 0;   // temperatura inicial
     
-    if (x > y) {
-        print x;
+    print "Iniciando aquecimento...";
+    
+    if (potencia > 50) {
+        print "Potência alta selecionada";
     } else {
-        print y;
+        print "Potência baixa selecionada";
     }
     
-    while (x > 0) {
-        print x;
-        x = x - 1;
+    while (tempo > 0) {
+        print "Tempo restante: " + tempo + " segundos";
+        print "Temperatura atual: " + temperatura + "°C";
+        tempo = tempo - 1;
+        temperatura = temperatura + 2;  // simula aquecimento
     }
+    
+    print "Aquecimento concluído!";
 end
 ```
 
 Este exemplo ilustra:
-- Declaração e inicialização de variáveis
-- Estrutura condicional com `if-else`
-- Loop com `while`
-- Operações aritméticas e de comparação
+- Controle de tempo e potência do microondas
+- Estrutura condicional para diferentes níveis de potência
+- Loop para contagem regressiva do tempo
+- Simulação de aquecimento com variável de temperatura
 
 ## Conclusão
 
-A gramática EBNF apresentada define uma linguagem de programação simples mas completa, que atende aos requisitos básicos de uma linguagem de programação: variáveis, estruturas condicionais e loops. A escolha da MicrowaveVM como target permite uma implementação direta e eficiente, mantendo a simplicidade do design.
+A gramática EBNF apresentada define uma linguagem de programação simples mas completa, especificamente projetada para controlar operações de microondas virtuais. A linguagem LingParERP atende aos requisitos básicos de uma linguagem de programação (variáveis, estruturas condicionais e loops) enquanto mantém foco na simplicidade necessária para programação de receitas e controle de tempo/potência. A escolha da MicrowaveVM como target permite uma implementação direta e eficiente, simulando realisticamente o comportamento de um microondas real através de registradores de tempo, potência e temperatura.
