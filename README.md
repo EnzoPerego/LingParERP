@@ -13,7 +13,7 @@ A linguagem funciona com uma máquina virtual que simula um microondas real. Ela
 
 - **Controles básicos**: `TIME` (tempo) e `POWER` (potência)
 - **Simulação**: `TEMP` (temperatura) e `WEIGHT` (peso)
-- **Comandos**: `SET`, `INC`, `DECJZ`, `GOTO`, `PRINT`, `HALT`
+- **Comandos**: `SET` (define valor), `INC` (incrementa), `DECJZ` (decrementa e pula se zero), `GOTO` (pula para linha), `PRINT` (mostra na tela), `HALT` (para execução)
 
 Basicamente, você escreve o código em LingParERP e ele vira comandos que a máquina virtual entende para controlar o microondas.
 
@@ -45,8 +45,19 @@ KEYWORD = program | end | var | if | else | while | print
 <factor> ::= IDENTIFIER | NUMBER | ( <expression> )
 ```
 
+## Extras
 O que esse programa faz:
 - Define tempo e potência para aquecer
 - Mostra se é potência alta ou baixa
 - Conta o tempo regressivamente
 - Simula o aquecimento aumentando a temperatura
+
+## Notações EBNF
+
+A gramática usa as notações padrão EBNF:
+- `::=` para definição de regras
+- `|` para alternativas (ou)
+- `[ ]` para opcional
+- `{ }` para repetição zero ou mais vezes
+- `( )` para agrupamento
+- `*` e `+` para quantificadores
