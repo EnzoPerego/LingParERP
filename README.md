@@ -4,15 +4,14 @@
 - Target: MicrowaveVM (Máquina Virtual de Microondas)
 - Estilo: Baseado em C com palavras-chave em inglês
 - Tipos de dados: Apenas números inteiros
-- Foco: Simplicidade e clareza para programação de receitas
-- Aplicação: Controle de tempo, potência e operações do microondas
+- Foco: Simplicidade e clareza
+- Aplicação: Ligar, desligar, definir tempo e potência do microondas
 
 ## Como funciona?
 
 A linguagem funciona com uma máquina virtual que simula um microondas real. Ela tem:
 
 - **Controles básicos**: `TIME` (tempo) e `POWER` (potência)
-- **Simulação**: `TEMP` (temperatura) e `WEIGHT` (peso)
 - **Comandos**: `SET` (define valor), `INC` (incrementa), `DECJZ` (decrementa e pula se zero), `GOTO` (pula para linha), `PRINT` (mostra na tela), `HALT` (para execução)
 
 Basicamente, você escreve o código em LingParERP e ele vira comandos que a máquina virtual entende para controlar o microondas.
@@ -45,12 +44,31 @@ KEYWORD = program | end | var | if | else | while | print
 <factor> ::= IDENTIFIER | NUMBER | ( <expression> )
 ```
 
-## Extras
+## Exemplo de Programa
+
+```lingpar
+program microondas
+    var tempo = 30;        // 30 segundos
+    var potencia = 70;     // 70% de potência
+    
+    print "Ligando microondas...";
+    print "Tempo: " + tempo + " segundos";
+    print "Potência: " + potencia + "%";
+    
+    while (tempo > 0) {
+        print "Tempo restante: " + tempo + " segundos";
+        tempo = tempo - 1;
+    }
+    
+    print "Microondas desligado!";
+end
+```
+
 O que esse programa faz:
-- Define tempo e potência para aquecer
-- Mostra se é potência alta ou baixa
+- Liga o microondas
+- Define tempo e potência
 - Conta o tempo regressivamente
-- Simula o aquecimento aumentando a temperatura
+- Desliga quando termina
 
 ## Notações EBNF
 
