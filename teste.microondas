@@ -1,0 +1,11 @@
+program microondas
+{
+    var tempo = 30;
+    var potencia = 70;
+    
+    print "Ligando microondas...";
+    print "Tempo: " + tempo + " segundos";
+    print "Potência: " + potencia + "%";
+    print "Microondas ligado!";
+}
+end
