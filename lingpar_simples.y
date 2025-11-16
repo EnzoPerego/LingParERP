@@ -24,7 +24,7 @@ void print_success(const char *message);
 // Definir os tokens (mesmos valores do Flex)
 %token <string> IDENTIFIER STRING
 %token <number> NUMBER
-%token PROGRAM VAR PRINT END
+%token PROGRAM VAR PRINT END IF ELSE WHILE
 %token ASSIGN PLUS MINUS MULTIPLY DIVIDE
 %token EQUALS NOT_EQUALS GREATER_EQUALS LESS_EQUALS GREATER_THAN LESS_THAN
 %token LEFT_PAREN RIGHT_PAREN LEFT_BRACE RIGHT_BRACE SEMICOLON
@@ -55,6 +55,9 @@ statement_list:
 /* Tipos de comandos */
 statement:
     declaration
+    | assignment
+    | conditional
+    | loop
     | print_statement
     ;
 
@@ -70,6 +73,32 @@ optional_assignment:
     | ASSIGN expression
     ;
 
+/* Atribuição */
+assignment:
+    IDENTIFIER ASSIGN expression SEMICOLON {
+        print_success("Atribuição válida");
+    }
+    ;
+
+/* Condicional */
+conditional:
+    IF LEFT_PAREN expression RIGHT_PAREN LEFT_BRACE statement_list RIGHT_BRACE optional_else {
+        print_success("Condicional válida");
+    }
+    ;
+
+optional_else:
+    /* vazio */
+    | ELSE LEFT_BRACE statement_list RIGHT_BRACE
+    ;
+
+/* Loop */
+loop:
+    WHILE LEFT_PAREN expression RIGHT_PAREN LEFT_BRACE statement_list RIGHT_BRACE {
+        print_success("Loop válido");
+    }
+    ;
+
 /* Comando print */
 print_statement:
     PRINT expression SEMICOLON {
@@ -77,13 +106,22 @@ print_statement:
     }
     ;
 
-/* Expressões simples */
+/* Expressões */
 expression:
     IDENTIFIER
     | NUMBER
     | STRING
+    | LEFT_PAREN expression RIGHT_PAREN
     | expression PLUS expression
     | expression MINUS expression
+    | expression MULTIPLY expression
+    | expression DIVIDE expression
+    | expression EQUALS expression
+    | expression NOT_EQUALS expression
+    | expression GREATER_EQUALS expression
+    | expression LESS_EQUALS expression
+    | expression GREATER_THAN expression
+    | expression LESS_THAN expression
     ;
 
 %%
@@ -91,12 +129,12 @@ expression:
 // Função para reportar erros sintáticos
 void yyerror(const char *s) {
     error_count++;
-    printf("❌ Erro sintático: %s\n", s);
+    printf("Erro sintático: %s\n", s);
 }
 
 // Função para imprimir mensagens de sucesso
 void print_success(const char *message) {
-    printf("✅ %s\n", message);
+    printf("%s\n", message);
 }
 
 // Função principal
@@ -107,9 +145,9 @@ int main(int argc, char *argv[]) {
     int result = yyparse();
     
     if (result == 0 && error_count == 0) {
-        printf("\n🎉 Programa válido! Análise sintática concluída com sucesso.\n");
+        printf("\nPrograma válido! Análise sintática concluída com sucesso.\n");
     } else {
-        printf("\n❌ Programa inválido! %d erro(s) encontrado(s).\n", error_count);
+        printf("\nPrograma inválido! %d erro(s) encontrado(s).\n", error_count);
     }
     
     return result;

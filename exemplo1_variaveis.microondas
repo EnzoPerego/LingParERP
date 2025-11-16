@@ -1,0 +1,9 @@
+program exemplo_variaveis
+{
+    var tempo = 60;
+    var potencia = 80;
+    
+    print "Tempo configurado: " + tempo;
+    print "Potência configurada: " + potencia;
+}
+end

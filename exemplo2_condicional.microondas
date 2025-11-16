@@ -1,0 +1,17 @@
+program exemplo_condicional
+{
+    var tempo = 30;
+    var potencia = 70;
+    
+    if (potencia > 50) {
+        print "Potência alta";
+    } else {
+        print "Potência baixa";
+    }
+    
+    if (tempo == 30) {
+        print "Tempo configurado corretamente";
+    }
+}
+end
+

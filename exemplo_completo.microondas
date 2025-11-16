@@ -1,0 +1,16 @@
+program exemplo_completo
+{
+    var tempo = 60;
+    var potencia = 80;
+    var resultado;
+    
+    print "=== Controle de Microondas ===";
+    print tempo;
+    print potencia;
+    
+    print tempo + potencia;
+    print potencia - tempo;
+    
+    print "Programa executado com sucesso!";
+}
+end

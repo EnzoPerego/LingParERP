@@ -16,6 +16,9 @@
 "var"                             { return VAR; }
 "print"                           { return PRINT; }
 "end"                             { return END; }
+"if"                              { return IF; }
+"else"                            { return ELSE; }
+"while"                           { return WHILE; }
 
 "=="                              { return EQUALS; }
 "!="                              { return NOT_EQUALS; }

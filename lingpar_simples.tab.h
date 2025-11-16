@@ -46,22 +46,25 @@
      VAR = 262,
      PRINT = 263,
      END = 264,
-     ASSIGN = 265,
-     PLUS = 266,
-     MINUS = 267,
-     MULTIPLY = 268,
-     DIVIDE = 269,
-     EQUALS = 270,
-     NOT_EQUALS = 271,
-     GREATER_EQUALS = 272,
-     LESS_EQUALS = 273,
-     GREATER_THAN = 274,
-     LESS_THAN = 275,
-     LEFT_PAREN = 276,
-     RIGHT_PAREN = 277,
-     LEFT_BRACE = 278,
-     RIGHT_BRACE = 279,
-     SEMICOLON = 280
+     IF = 265,
+     ELSE = 266,
+     WHILE = 267,
+     ASSIGN = 268,
+     PLUS = 269,
+     MINUS = 270,
+     MULTIPLY = 271,
+     DIVIDE = 272,
+     EQUALS = 273,
+     NOT_EQUALS = 274,
+     GREATER_EQUALS = 275,
+     LESS_EQUALS = 276,
+     GREATER_THAN = 277,
+     LESS_THAN = 278,
+     LEFT_PAREN = 279,
+     RIGHT_PAREN = 280,
+     LEFT_BRACE = 281,
+     RIGHT_BRACE = 282,
+     SEMICOLON = 283
    };
 #endif
 /* Tokens.  */
@@ -72,22 +75,25 @@
 #define VAR 262
 #define PRINT 263
 #define END 264
-#define ASSIGN 265
-#define PLUS 266
-#define MINUS 267
-#define MULTIPLY 268
-#define DIVIDE 269
-#define EQUALS 270
-#define NOT_EQUALS 271
-#define GREATER_EQUALS 272
-#define LESS_EQUALS 273
-#define GREATER_THAN 274
-#define LESS_THAN 275
-#define LEFT_PAREN 276
-#define RIGHT_PAREN 277
-#define LEFT_BRACE 278
-#define RIGHT_BRACE 279
-#define SEMICOLON 280
+#define IF 265
+#define ELSE 266
+#define WHILE 267
+#define ASSIGN 268
+#define PLUS 269
+#define MINUS 270
+#define MULTIPLY 271
+#define DIVIDE 272
+#define EQUALS 273
+#define NOT_EQUALS 274
+#define GREATER_EQUALS 275
+#define LESS_EQUALS 276
+#define GREATER_THAN 277
+#define LESS_THAN 278
+#define LEFT_PAREN 279
+#define RIGHT_PAREN 280
+#define LEFT_BRACE 281
+#define RIGHT_BRACE 282
+#define SEMICOLON 283
 
 
 
@@ -100,7 +106,7 @@ typedef union YYSTYPE
     char *string;
 }
 /* Line 1529 of yacc.c.  */
-#line 104 "lingpar_simples.tab.h"
+#line 110 "lingpar_simples.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

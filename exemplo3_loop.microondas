@@ -1,0 +1,14 @@
+program exemplo_loop
+{
+    var tempo = 5;
+    var contador = 0;
+    
+    while (contador < tempo) {
+        print "Contando...";
+        contador = contador + 1;
+    }
+    
+    print "Loop finalizado";
+}
+end
+
